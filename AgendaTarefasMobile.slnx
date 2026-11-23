@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="AgendaTarefasMobile.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>

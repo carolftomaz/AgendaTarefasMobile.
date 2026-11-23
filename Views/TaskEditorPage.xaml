@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaTarefasMobile.Views.TaskEditorPage"
+             Title="Tarefa">
+    <ScrollView>
+        <VerticalStackLayout Padding="22" Spacing="12">
+            <Label Text="{Binding Header}" FontSize="26" FontAttributes="Bold" />
+            <Label Text="Título da tarefa" />
+            <Entry Placeholder="Ex.: Entregar trabalho" Text="{Binding Title}" BackgroundColor="White" />
+            <Label Text="Descrição" />
+            <Editor Placeholder="Detalhes da tarefa" Text="{Binding Description}" HeightRequest="90" BackgroundColor="White" />
+            <Label Text="Data" />
+            <DatePicker Date="{Binding DueDate}" />
+            <Label Text="Categoria" />
+            <Picker Title="Selecione" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory}" />
+            <Label Text="Prioridade" />
+            <VerticalStackLayout RadioButtonGroup.GroupName="prioridade">
+                <RadioButton Content="Baixa" IsChecked="{Binding IsLow}" />
+                <RadioButton Content="Média" IsChecked="{Binding IsMedium}" />
+                <RadioButton Content="Alta" IsChecked="{Binding IsHigh}" />
+            </VerticalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <CheckBox IsChecked="{Binding IsDone}" Color="#7853A6" />
+                <Label Text="Tarefa concluída" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Button Text="Salvar tarefa" Clicked="SaveClicked" />
+            <Button Text="Cancelar" BackgroundColor="#A99ABA" Clicked="CancelClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

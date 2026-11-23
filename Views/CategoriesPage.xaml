@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaTarefasMobile.Views.CategoriesPage"
+             Title="Categorias">
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowSpacing="12">
+        <Label Text="Categorias" FontSize="26" FontAttributes="Bold" />
+        <Label Grid.Row="1" Text="Selecione uma categoria para editar ou excluir." FontSize="13" />
+        <Entry Grid.Row="2" Placeholder="Nome da categoria" Text="{Binding Name}" BackgroundColor="White" />
+        <Picker Grid.Row="3" Title="Cor" SelectedItem="{Binding Color}" BackgroundColor="White">
+            <Picker.Items>
+                <x:String>Lilás</x:String>
+                <x:String>Rosa</x:String>
+                <x:String>Azul</x:String>
+                <x:String>Verde</x:String>
+            </Picker.Items>
+        </Picker>
+        <Grid Grid.Row="4" ColumnDefinitions="*,*,*" ColumnSpacing="8">
+            <Button Text="Salvar" Clicked="SaveClicked" />
+            <Button Grid.Column="1" Text="Limpar" BackgroundColor="#A99ABA" Clicked="ClearClicked" />
+            <Button Grid.Column="2" Text="Excluir" BackgroundColor="#B75670" Clicked="DeleteClicked" />
+        </Grid>
+        <ListView Grid.Row="5" ItemsSource="{Binding Categories}" SelectedItem="{Binding Selected, Mode=TwoWay}" SeparatorVisibility="Default" BackgroundColor="White">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Color}" TextColor="#2D2540" DetailColor="#786A90" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
